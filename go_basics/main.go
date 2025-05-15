@@ -2,11 +2,25 @@ package main
 
 import (
 	"fmt"
+	"maps"
 	"math"
 	"time"
 	// 	"slices"
 )
 
+// Functions
+func plus(a int, b int) int {
+  return a+b
+}
+
+func plusPlus(a,b,c int) int {
+  return a+b+c
+}
+
+// Multiple return type
+func vals() (int, int){
+  return 3,7
+}
 
 const s string = "constant"
 
@@ -106,5 +120,33 @@ fmt.Println("dcl",arr)
 // Slices
 var s []string
 fmt.Println("ununit",s,s==nil, len(s)==0)
+
+  // MAPS
+  m:=make(map[string]int)
+  m["k1"]=12
+  m["k2"]=13
+  fmt.Println("map:", m)
+  _,prs:=m["k3"]
+  fmt.Println("prs:", prs)
+  
+  myMap := map[string]int{"foo":1, "bar":2}
+  n2 := map[string]int{"foo":1, "bar":2}
+  
+  if maps.Equal(myMap,n2){
+    fmt.Println("myMap == n2")
+  }
+  
+  // Function call
+  res:=plus(1,2)
+  fmt.Println("1+2=",res)
+  
+  res=plusPlus(1,2,3)
+  fmt.Println("1+2+3=",res)
+  
+  val1, val2 := vals()
+  fmt.Println(val1, val2)
+  
+  _, val3 := vals()
+  fmt.Println(val3)
 
 }
