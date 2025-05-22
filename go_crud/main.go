@@ -1,10 +1,20 @@
 package main
 
 import (
+	"fmt"
   "net/http"
 
   "github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
+
+func init(){
+	// Load environment variables from .env file
+	err := godotenv.Load()
+	if err != nil {
+	  fmt.Println("Error loading .env file")
+	}
+}
 
 func main() {
   r := gin.Default()
